@@ -3,16 +3,25 @@ import API from "../utils/API";
 
 class EmployeeContainer extends Component {
   state = {
-    result: {},
-    search: ""
+    results: [],
   };
 
-  // When this component mounts, load all employees
+  //When this component mounts, load all employees
   componentDidMount() {
-    this.getAllEmployees();
+    API.getAllEmployees()
+      .then(res => {
+        this.setState({ results: res.data.results })
+        console.log(res.data.results)
+      })
+      .catch(err => console.log(err));
   }
 
-  
+  render() {
+    return (
+      <h1>Employee Directory</h1>
+    );
+  }
+
 }
 
 export default EmployeeContainer;
