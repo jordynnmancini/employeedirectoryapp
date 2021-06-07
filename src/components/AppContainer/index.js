@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 
-class EmployeeContainer extends Component {
+class AppContainer extends Component {
   state = {
     results: [],
   };
@@ -19,9 +19,15 @@ class EmployeeContainer extends Component {
   render() {
     return (
       <h1>Employee Directory</h1>
+      // filter by name
+      // sort by registered.date
+      // class TableControls
+      //class Table 
+      // class Row & Column - used in Table
+      
     );
   }
 
 }
 
-export default EmployeeContainer;
+export default AppContainer;
