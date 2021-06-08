@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import TableHeaders from "../TableHeaders";
-import TableData from "../TableData"; 
+import TableData from "../TableData";
 import { format } from 'date-fns';
+import './style.css';
 
 
 class AppContainer extends Component {
@@ -22,24 +23,26 @@ class AppContainer extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Employee Directory</h1>
-        <table>
-          <TableHeaders />
+      <div className="body">
+        <h1 className='app-header'>Employee Directory</h1>
+        <div>
+        <table className="table">
+          <thead className='table-headers'>
+            <TableHeaders />
+          </thead>
           <tbody>
-          {this.state.results.map((user) => ( 
-            <TableData
-            thumbnail={user.picture.thumbnail}
-            name={`${user.name.first} ${user.name.last}`}
-            email={user.email}
-            hiredate={format(new Date(user.registered.date), 'MM/dd/yyyy')}
-            key={user.id.value}
-            />
-          ))}
-        </tbody>
+            {this.state.results.map((user) => (
+              <TableData 
+                thumbnail={user.picture.thumbnail}
+                name={`${user.name.first} ${user.name.last}`}
+                email={user.email}
+                hiredate={format(new Date(user.registered.date), 'MM/dd/yyyy')}
+                key={user.id.value}
+              />
+            ))}
+          </tbody>
         </table>
-
-
+        </div>
       </div>
 
 
