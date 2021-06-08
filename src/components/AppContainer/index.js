@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import TableHeaders from "../TableHeaders";
 import TableData from "../TableData";
+import SearchForm from "../SearchForm"; 
 import { format } from 'date-fns';
 import './style.css';
 
@@ -25,6 +26,11 @@ class AppContainer extends Component {
     return (
       <div className="body">
         <h1 className='app-header'>Employee Directory</h1>
+        <div className="table-controls">
+        <SearchForm 
+        value={this.state.search}
+        /> 
+        </div>
         <div>
         <table className="table">
           <thead className='table-headers'>
