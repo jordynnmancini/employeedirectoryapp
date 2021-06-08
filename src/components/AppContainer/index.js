@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import Table from "../Table"; 
+import TableHeaders from "../TableHeaders";
+import TableData from "../TableData"; 
 
 class AppContainer extends Component {
   state = {
@@ -16,25 +17,27 @@ class AppContainer extends Component {
       })
       .catch(err => console.log(err));
   }
-  // filter by name
-  // sort by registered.date
-  // class TableControls
-  //class Table 
-  // class Row & Column - used in Table
+
   render() {
     return (
       <div>
         <h1>Employee Directory</h1>
-        <div>
+        <table>
+          <TableHeaders />
+          <tbody>
           {this.state.results.map((user) => (
-            <Table
+            <TableData
             thumbnail={user.picture.thumbnail}
             name={`${user.name.first} ${user.name.last}`}
             email={user.email}
             hiredate={user.registered.date}
+            key={user.id.value}
             />
           ))}
-        </div>
+        </tbody>
+        </table>
+
+
       </div>
 
 
