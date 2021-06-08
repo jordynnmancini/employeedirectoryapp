@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import TableHeaders from "../TableHeaders";
 import TableData from "../TableData"; 
+import { format } from 'date-fns';
+
 
 class AppContainer extends Component {
   state = {
@@ -25,12 +27,12 @@ class AppContainer extends Component {
         <table>
           <TableHeaders />
           <tbody>
-          {this.state.results.map((user) => (
+          {this.state.results.map((user) => ( 
             <TableData
             thumbnail={user.picture.thumbnail}
             name={`${user.name.first} ${user.name.last}`}
             email={user.email}
-            hiredate={user.registered.date}
+            hiredate={format(new Date(user.registered.date), 'MM/dd/yyyy')}
             key={user.id.value}
             />
           ))}
