@@ -7,8 +7,8 @@ function TableHeaders(props) {
                 <th>Name</th>
                 <th>Email</th>
                 <th>Hire Date
-                    <button onClick={props.sortAsc}>Asc</button>
-                    <button onClick={props.sortDesc}>Desc</button></th>
+                    <button onClick={props.sortAsc}><i class="fas fa-long-arrow-alt-up"></i></button>
+                    <button onClick={props.sortDesc}><i class="fas fa-long-arrow-alt-down"></i></button></th>
             </tr>
     )
 }
