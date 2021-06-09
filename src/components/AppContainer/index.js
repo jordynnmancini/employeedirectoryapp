@@ -57,6 +57,38 @@ class AppContainer extends Component {
     this.setState({ results: db })
   }
 
+  sortAsc = () => {
+    let arr = this.state.db; 
+    for (let i=0; i<arr.length; i++) {
+      let date = new Date(arr[i].registered.date)
+      for (let j=0; j<arr.length; j++) {
+        let date2 = new Date(arr[j].registered.date)
+        if(date2 > date){
+          let order = arr[i]
+          arr[i] = arr[j];
+          arr[j] = order; 
+        }
+      }
+    }
+    this.setState({ results: arr })
+  }
+
+  sortDesc = () => {
+    let arr = this.state.db; 
+    for (let i=0; i<arr.length; i++) {
+      let date = new Date(arr[i].registered.date)
+      for (let j=0; j<arr.length; j++) {
+        let date2 = new Date(arr[j].registered.date)
+        if(date2 < date){
+          let order = arr[i]
+          arr[i] = arr[j];
+          arr[j] = order; 
+        }
+      }
+    }
+    this.setState({ results: arr })
+  }
+
   render() {
     return (
       <div className="body">
@@ -71,7 +103,9 @@ class AppContainer extends Component {
         <div>
         <table className="table">
           <thead className='table-headers'>
-            <TableHeaders />
+            <TableHeaders 
+            sortAsc={this.sortAsc}
+            sortDesc={this.sortDesc}/>
           </thead>
           <tbody>
             {this.state.results.map((user, key) => (
