@@ -13,18 +13,13 @@ class AppContainer extends Component {
     search: '',
     db: []
   };
-
   //When this component mounts, load all employees
   componentDidMount() {
     API.getAllEmployees()
       .then(res => {
-
-        //Loop res.data.results 
-        //In the loop ==> db.push({name: res.data.results[i].name.first + "," +res.data.results[i].name.last,
-       //  email:})
         this.setState({ results: res.data.results, 
           db:res.data.results })
-        console.log(this.state.results,this.state.db)
+        console.log(this.state.results, this.state.db)
       })
       .catch(err => console.log(err));
   }
@@ -52,7 +47,6 @@ class AppContainer extends Component {
 
   reset = (e) => {
     e.preventDefault(); 
-    console.log(this.state.db)
     let db = this.state.db;
     this.setState({ results: db })
   }
