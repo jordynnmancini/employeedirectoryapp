@@ -3,7 +3,7 @@
 ## Description
 This app is an employee directory created with React. It uses the [Random User API](https://randomuser.me/) to pull in random users for the table.
 
-It has been delployed on Heroku: 
+It has been delployed on GitHub Pages: https://jordynnmancini.github.io/employeedirectoryapp/
 
 ![demo](./assets/demo.gif)
 
